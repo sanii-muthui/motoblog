@@ -1,0 +1,23 @@
+{% macro displayBlogList(blog_list) %}
+
+{% for blog in blog_list %}
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 blog-card">
+    <img src="static/image1.jpg" class="img-responsive">
+    <li class="text-center">
+        <a href="/blog/{{blog.id}}">
+            {{ blog.title|truncate(10)}}</a>
+    </li>
+</div>
+
+{% endfor %}
+
+{% endmacro %}
+
+{% macro displayComments(comment_list) %}
+{% for comment in comment_list %}
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 comment-card">
+    <h2> {{ comment.title}} </h2>
+    <p> {{ comment.comment | truncate(30) }}</p>
+</div>
+{% endfor %}
+{% endmacro %}

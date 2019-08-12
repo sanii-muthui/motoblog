@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title>Motoblog </title>
+    {% endif %}
+</head>
+
+<body style="overflow-y: hidden">
+{% block content %}
+<div class="upper-content" style="height: 50vh;">
+<h1 class="heading">Welcome to motoblog!</h1>
+</div>
+
+<div class="view-blogs">
+<h1 class="heading" style="color:black">Blogs</h1>
+    <div class="row">
+    <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card">
+                {% for blog in blog %}
+                
+                <div class="card-body">
+                    <h2>{{blog.blog_title}}</h2>
+                    <div class="card-footer text-muted">
+                        <a class="btn btn-primary" href="{{url_for('main.display',id =blog.id)}}">Comment</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    <div class="col-md-3"></div>
+
+        </div>
+    </div>
+{% endblock%}
+
+</body>
+</html>
