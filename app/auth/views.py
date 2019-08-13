@@ -16,7 +16,7 @@ def login():
             return redirect(request.args.get('next') or url_for('main.index'))
         flash('Invalid username or Password')
 
-    title = "formidablog login"
+    title = "Motoblog login"
     return render_template('auth/login.html',login_form = login_form,title=title)
     
 @auth.route('/logout')
@@ -33,7 +33,7 @@ def register():
         user = User(email = form.email.data, username = form.username.data,password = form.password.data)
         db.session.add(user)
         db.session.commit()
-        mail_message("Welcome to formidablog","email/welcome_user",user.email,user=user)
+        mail_message("Welcome to Motoblog","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
         title = "New Account"
     return render_template('auth/register.html',registration_form = form)
