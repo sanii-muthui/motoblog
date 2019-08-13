@@ -17,13 +17,18 @@ integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6J
     {% else %}
     <title>Motoblog </title>
     {% endif %}
+   
 </head>
 
 <body>
 {% block content %}
-<div class="upper-content" style="height: 50vh; background-color: cadetblue">
-<h1 class="heading" style="text-align: center">Welcome to motoblog!</h1>
-</div>
+<div class="top" style="height: 50vh;">
+    <h1 class="heading" style="text-align: center">Welcome to motoblog</h1>
+    <div class="container jumbotron text-center">
+        <p>{{quote.quote}}</p>
+        <p>{{quote.author}}</p>
+    </div>
+    </div>
 
 <div class="view-blogs">
 <h1 class="heading" style="color:black; background-color: darkcyan; text-align: center">Blogs</h1>
