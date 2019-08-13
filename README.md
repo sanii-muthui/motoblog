@@ -25,9 +25,12 @@ As a writer I would also like to create a blog from the application.
 As a writer, I would like to delete comments that are inappropriate.
 
 ## Behavior Driven Development
-|--------input--------------:|-------------output------:|
+| input                      |output                    |
+| :--------------------------|:-------------------------|
 |Sign in/sign up             |	Create blog posts       |
 |View Blogs                  |	Leave comment           |
+
+
 
 ## Testing the Application
 Inorder to run the tests for the files: $ python3.6 - navigate - tests and run file
