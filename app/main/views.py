@@ -5,6 +5,7 @@ from ..models import Comment, User,Blog
 from .forms import UpdateBio,BlogForm,AddComment,EmailForm
 from flask_login import login_required, current_user
 from .. import db,photos
+from ..request import get_quote
 from datetime import datetime
 #single user
 import markdown2
@@ -13,9 +14,11 @@ import markdown2
 @main.route('/')
 def index():
     title ='Home - Welcome to motoblog'
+    name  = "Quote"
+    quote = get_quote()
     blog= Blog.query.all()
     print(dir(blog))
-    return render_template('index.html', blog=blog)
+    return render_template('index.html', blog=blog, quote=quote)
 
 
 
